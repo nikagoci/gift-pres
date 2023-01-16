@@ -15,21 +15,21 @@ const Navbar = () => {
   return (
     <nav className="py-5 h-[82px] bg-zinc-100">
       <div className="container mx-auto lg:px-16">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div>
             <img src={Logo} alt="img" />
           </div>
-          <ul className=" hidden md:flex gap-x-6 lg:gap-x-16 ">
+          <ul className="hidden  md:flex gap-x-6 lg:gap-x-16">
             {navbarLinks.map((item, ind) => (
               <li
                 key={ind}
-                className="text-lg lg:text-2xl text-slate-700 transition duration-500 cursor-pointer hover:text-slate-400"
+                className="text-lg transition duration-500 cursor-pointer lg:text-2xl text-slate-700 hover:text-slate-400"
               >
                 {item}
               </li>
             ))}
           </ul>
-          <div className="md:flex hidden">
+          <div className="hidden md:flex">
             <Button isFull>Add Product</Button>
           </div>
           <div className="pr-4 md:hidden">
@@ -51,7 +51,7 @@ const Navbar = () => {
               exit={{ x: 300, transition: { duration: 1.5 } }}
               className="absolute top-0 right-0 z-50 h-screen py-20 pl-8 bg-white shadow-lg md:hidden"
             >
-              <div className="flex justify-end items-end py-10 absolute top-0 right-10">
+              <div className="absolute top-0 flex items-end justify-end py-10 right-10">
                 <AiOutlineClose
                   onClick={() => setIsOpen(false)}
                   className="w-6 h-6 cursor-pointer"
@@ -64,7 +64,7 @@ const Navbar = () => {
                 {navbarLinks.map((item, ind) => (
                   <li
                     key={ind}
-                    className="text-2xl text-slate-700 transition duration-500 cursor-pointer hover:text-slate-400 mb-4"
+                    className="mb-4 text-2xl transition duration-500 cursor-pointer text-slate-700 hover:text-slate-400"
                   >
                     {item}
                   </li>
