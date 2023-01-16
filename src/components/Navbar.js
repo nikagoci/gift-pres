@@ -6,6 +6,7 @@ import Logo from "../assets/logo.svg";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const navbarLinks = ["Home", "About Us", "Products"];
 
@@ -19,7 +20,7 @@ const Navbar = () => {
           <div>
             <img src={Logo} alt="img" />
           </div>
-          <ul className="hidden  md:flex gap-x-6 lg:gap-x-16">
+          <ul className="hidden md:flex gap-x-6 lg:gap-x-16">
             {navbarLinks.map((item, ind) => (
               <li
                 key={ind}
@@ -30,7 +31,9 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="hidden md:flex">
-            <Button isFull>Add Product</Button>
+            <Link to='/form'>
+              <Button isFull>Add Product</Button>
+            </Link>
           </div>
           <div className="pr-4 md:hidden">
             <RxHamburgerMenu
@@ -71,7 +74,9 @@ const Navbar = () => {
                 ))}
               </ul>
               <div className="mt-10">
-                <Button isFull>Add Product</Button>
+                <Link to='/form'>
+                  <Button isFull>Add Product</Button>
+                </Link>
               </div>
             </motion.div>
           </>
