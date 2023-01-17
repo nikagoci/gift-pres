@@ -21,6 +21,7 @@ const useAxios = (url) => {
         }
 
         fetchData()
+        //eslint-disable-next-line
     }, [])
 
     return { data, error, isLoading}

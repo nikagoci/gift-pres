@@ -26,8 +26,6 @@ const Form = () => {
     resolver: yupResolver(schema)
   });
 
-
-console.log(errors)
   const onSubmit = (data) => {
     console.log(data);
   };

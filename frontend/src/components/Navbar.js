@@ -17,9 +17,9 @@ const Navbar = () => {
     <nav className="py-5 h-[82px] bg-zinc-100">
       <div className="container mx-auto lg:px-16">
         <div className="flex items-center justify-between">
-          <div>
+          <Link to='/'>
             <img src={Logo} alt="img" />
-          </div>
+          </Link>
           <ul className="hidden md:flex gap-x-6 lg:gap-x-16">
             {navbarLinks.map((item, ind) => (
               <li

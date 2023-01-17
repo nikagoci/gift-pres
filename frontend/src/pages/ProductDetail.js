@@ -1,5 +1,6 @@
-import React from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../components/Spinner";
+import useAxios from '../hooks/useAxios'
 
 const data = [
   {
@@ -41,11 +42,22 @@ const data = [
 ];
 
 const ProductDetail = () => {
-  const params = useParams();
-  const singleProduct = data.filter((item) => item.id === +params.id)[0];
+  const params = useParams()
+  const {data: singlePost, error, isLoading} = useAxios(`http://localhost:5000/api/v1/post/${params.id}`)
+
+  console.log(singlePost)
+  if(isLoading) {
+    return (
+      <section className="py-8">
+        <Spinner />
+      </section>
+    )
+  }
 
   return (
-    <section className="py-8 header-height">
+    <>
+    {singlePost && (
+      <section className="py-8 header-height">
       <div className="container h-full mx-auto">
         <div className="flex flex-col h-full lg:items-center lg:justify-center lg:flex-row">
             
@@ -53,25 +65,25 @@ const ProductDetail = () => {
             <div className="flex justify-center px-10 mb-5">
               <img
                 className="h-[400px] w-full rounded-xl"
-                src={singleProduct.img}
-                alt={singleProduct.product}
+                src={singlePost?.post.img}
+                alt={singlePost?.post.product}
               />
             </div>
             <div className="flex px-10 gap-x-4">
               <img
                 className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singleProduct.img}
-                alt={singleProduct.product}
+                src={singlePost?.post.img}
+                alt={singlePost?.post.product}
               />
               <img
                 className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singleProduct.img}
-                alt={singleProduct.product}
+                src={singlePost?.post.img}
+                alt={singlePost?.post.product}
               />
               <img
                 className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singleProduct.img}
-                alt={singleProduct.product}
+                src={singlePost?.post.img}
+                alt={singlePost?.post.product}
               />
             </div>
           </div>
@@ -79,13 +91,13 @@ const ProductDetail = () => {
           <div className="lg:mb-24">
             <div className="flex px-10 py-2 border-b border-indigo-300 divide-x lg:divide-x-0 lg:border-b-0 lg:flex-col">
               <h3 className="mt-2 text-[20px] pr-3 lg:p-0">
-                Gender: {singleProduct.gender}
+                Gender: {singlePost?.post.gender}
               </h3>
               <h4 className="mt-2 text-[20px] px-3 lg:p-0">
-                Condintion: {singleProduct.condition}
+                Condintion: {singlePost?.post.condition}
               </h4>
               <h2 className="py-2 pl-3 lg:mt-2 text-[20px] lg:p-0">
-                Product: {singleProduct.product}
+                Product: {singlePost?.post.product}
               </h2>
             </div>
 
@@ -95,10 +107,10 @@ const ProductDetail = () => {
               </h1>
               <div className="flex flex-col">
                 <h3 className="text-lg leading-8">
-                  Name: {singleProduct.name}
+                  Name: {singlePost?.post.name}
                 </h3>
                 <h3 className="text-lg leading-8">
-                  Number: {singleProduct.number}
+                  Number: {singlePost?.post.number}
                 </h3>
               </div>
             </div>
@@ -106,6 +118,9 @@ const ProductDetail = () => {
         </div>
       </div>
     </section>
+    )}
+    </>
+    
   );
 };
 
