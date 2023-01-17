@@ -1,5 +1,4 @@
-import React from "react";
-
+import axios from 'axios'
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup'
@@ -16,8 +15,6 @@ const schema = yup.object().shape({
       .number()
       .positive("Phone Number Should Be Positive")
       .integer("Phone Number Should Be Integer")
-      .min(6, "Phone Number's Length Should Be Less Than 6")
-      .max(12, "Phone Number's Length Should Be Greater Than 9")
       .typeError("Phone Number should be a number"),
   });
 
@@ -26,8 +23,17 @@ const Form = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const addProduct = async (data) => {
+    try{
+      const response = await axios.post('http://localhost:5000/api/v1/post', data)
+      return response
+    } catch(err){
+      console.log(err)
+    }
+  }
+  
+  const onSubmit = (newProduct) => {
+    addProduct(newProduct)
   };
 
   return (

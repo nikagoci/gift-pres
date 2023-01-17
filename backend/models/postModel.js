@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const postSchema = mongoose.Schema({
-    img: {
+    image: {
         type: String,
         required: true
     },
@@ -24,7 +24,7 @@ const postSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    name: {
+    firstname: {
         type: String,
         required: true
     },

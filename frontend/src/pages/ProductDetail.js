@@ -2,45 +2,6 @@ import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import useAxios from '../hooks/useAxios'
 
-const data = [
-  {
-    img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdGhlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    product: "Headset",
-    condition: "Normal",
-    gender: "Woman",
-    id: 1,
-    number: "555-55-55-55",
-    name: "Zaza",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    product: "Hats",
-    condition: "Good",
-    gender: "Man",
-    id: 2,
-    number: "555-55-55-55",
-    name: "Zaza",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    product: "Hoods",
-    condition: "Normal",
-    gender: "Woman",
-    id: 3,
-    number: "555-55-55-55",
-    name: "Zaza",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    product: "Boots",
-    condition: "Normal",
-    gender: "Man",
-    id: 4,
-    number: "555-55-55-55",
-    name: "Zaza",
-  },
-];
-
 const ProductDetail = () => {
   const params = useParams()
   const {data: singlePost, error, isLoading} = useAxios(`http://localhost:5000/api/v1/post/${params.id}`)
@@ -65,7 +26,7 @@ const ProductDetail = () => {
             <div className="flex justify-center px-10 mb-5">
               <img
                 className="h-[400px] w-full rounded-xl"
-                src={singlePost?.post.img}
+                src={singlePost?.post.image}
                 alt={singlePost?.post.product}
               />
             </div>
@@ -107,7 +68,7 @@ const ProductDetail = () => {
               </h1>
               <div className="flex flex-col">
                 <h3 className="text-lg leading-8">
-                  Name: {singlePost?.post.name}
+                  Name: {singlePost?.post.firstname}
                 </h3>
                 <h3 className="text-lg leading-8">
                   Number: {singlePost?.post.number}

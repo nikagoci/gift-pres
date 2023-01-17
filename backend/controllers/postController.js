@@ -36,8 +36,8 @@ exports.getSinglePost = async(req, res) => {
 }
 
 exports.createPost = async(req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
     try{    
+        res.set('Access-Control-Allow-Origin', '*');
         const newPost = await Post.create(req.body)
 
         res.status(201).json({

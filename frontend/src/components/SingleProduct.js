@@ -8,7 +8,7 @@ const SingleProduct = ({data}) => {
               <img
                 alt="ecommerce"
                 className="block object-cover object-center w-full h-full"
-                src={data.img}
+                src={data.image}
               />
             </div>
             <div className="mt-4">
