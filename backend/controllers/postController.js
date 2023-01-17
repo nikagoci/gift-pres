@@ -17,6 +17,22 @@ exports.getAllPost = async(req, res) => {
     }
 }
 
+exports.getSinglePost = async(req, res) => {
+    try{
+        const post = await Post.findById(req.params.id)
+
+        res.status(200).json({
+            status: "success",
+            post
+        })
+    } catch(err){
+        res.status(404).json({
+            status: 'Fail',
+            message: err.message,
+        })
+    }
+}
+
 exports.createPost = async(req, res) => {
     try{    
         const newPost = await Post.create(req.body)
@@ -31,4 +47,22 @@ exports.createPost = async(req, res) => {
             message: err.message
         })
     }
+}
+
+exports.deletePost = async(req, res) => {
+    try{
+        const deletedPost = await Post.findByIdAndDelete(req.params.id);
+
+        res.status(200).json({
+            status: 'success',
+            post: deletedPost
+        })
+
+    } catch(err){
+        res.status(404).json({
+            status: 'Fail',
+            message: err.message
+        })
+    }
+
 }
