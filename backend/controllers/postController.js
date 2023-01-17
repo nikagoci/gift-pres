@@ -2,6 +2,7 @@ const Post = require("../models/postModel")
 
 exports.getAllPost = async(req, res) => {
     try{
+        res.set('Access-Control-Allow-Origin', '*');
         const posts = await Post.find();
 
         res.status(200).json({
@@ -19,6 +20,7 @@ exports.getAllPost = async(req, res) => {
 
 exports.getSinglePost = async(req, res) => {
     try{
+        res.set('Access-Control-Allow-Origin', '*');
         const post = await Post.findById(req.params.id)
 
         res.status(200).json({
@@ -34,6 +36,7 @@ exports.getSinglePost = async(req, res) => {
 }
 
 exports.createPost = async(req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     try{    
         const newPost = await Post.create(req.body)
 
