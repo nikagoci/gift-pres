@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 
 const Form = () => {
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [productId, setProductId] = useState('');
 
@@ -41,8 +41,11 @@ const Form = () => {
       
       return response
     } catch(err){
-      setError(true)
-      console.log(err)
+      if(err.response.data.message.includes('duplicate key error')){
+        setError('Phone Number Already Exists')
+      } else {
+        setError(err.response.data.message)
+      }
     }
   }
   
@@ -94,7 +97,8 @@ const Form = () => {
         </Button>
       </div>
     </form>
-    {openModal && <Modal setOpenModal={setOpenModal} productId={productId} />}
+    {openModal && !error && <Modal setOpenModal={setOpenModal} productId={productId} />}
+    {openModal && error && <Modal setOpenModal={setOpenModal} error={error} />}
     </>
   );
 };
