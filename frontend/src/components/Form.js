@@ -33,6 +33,7 @@ const Form = () => {
   }
   
   const onSubmit = (newProduct) => {
+    console.log(newProduct)
     addProduct(newProduct)
   };
 

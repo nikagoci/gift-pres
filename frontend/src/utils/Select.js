@@ -16,7 +16,7 @@ const Select = ({label, name, opt1, opt2, getName}) => {
         {...getName(label)}
       >
         <option defaultValue>{opt1}</option>
-        <option value="female">{opt2}</option>
+        <option value={opt2}>{opt2}</option>
       </select>
     </div>
   );
