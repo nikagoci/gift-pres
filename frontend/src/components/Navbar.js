@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../utils/Button";
 
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/vault-logo.webp";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
@@ -27,11 +27,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="py-5 h-[82px] bg-[#151937] ">
+    <nav className="py-5 h-[82px] bg-[#151937]">
       <div className="container mx-auto lg:px-16">
         <div className="flex items-center justify-between">
           <Link to='/'>
-            <img src={Logo} alt="img" />
+            <img src={Logo} alt="img" className="w-24 h-auto" />
           </Link>
           <ul className="hidden md:flex gap-x-6 lg:gap-x-16">
             {navbarLinks.map((item, ind) => (
@@ -80,7 +80,7 @@ const Navbar = () => {
               </div>
               <div className="mt-10">
                 <Link to='/'>
-                  <img src={Logo} alt="img" className="cursor-pointer" onClick={() => setIsOpen(false)} />
+                  <img src={Logo} alt="img" className="w-24 h-auto cursor-pointer" onClick={() => setIsOpen(false)} />
                 </Link>
               </div>
               <ul className="mt-14">
