@@ -6,6 +6,8 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import Input from "../utils/Input";
 import Select from "../utils/Select";
 import Button from "../utils/Button";
+import { useState } from 'react';
+import Modal from './Modal';
 
 const schema = yup.object().shape({
     firstname: yup.string().required("Name Is Required"),
@@ -19,25 +21,39 @@ const schema = yup.object().shape({
   });
 
 const Form = () => {
-  const { register, handleSubmit, formState: {errors} } = useForm({
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [productId, setProductId] = useState('');
+
+  const { register, handleSubmit, formState: {errors}, reset } = useForm({
     resolver: yupResolver(schema)
   });
 
   const addProduct = async (data) => {
     try{
       const response = await axios.post('http://localhost:5000/api/v1/post', data)
+
+      if(response.status === 201){
+        setProductId(response.data.post._id)
+        setSuccess(true)
+      }
+      
       return response
     } catch(err){
+      setError(true)
       console.log(err)
     }
   }
   
   const onSubmit = (newProduct) => {
-    console.log(newProduct)
     addProduct(newProduct)
+    reset()
+    setOpenModal(true)
   };
 
   return (
+    <>
     <form
       className="p-10 bg-zinc-200 w-[500px] rounded-3xl mb-10"
       onSubmit={handleSubmit(onSubmit)}
@@ -78,6 +94,8 @@ const Form = () => {
         </Button>
       </div>
     </form>
+    {openModal && <Modal setOpenModal={setOpenModal} productId={productId} />}
+    </>
   );
 };
 
