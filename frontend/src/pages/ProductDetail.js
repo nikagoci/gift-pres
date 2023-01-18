@@ -8,8 +8,16 @@ const ProductDetail = () => {
 
   if(isLoading) {
     return (
-      <section className="py-8">
+      <section className="flex items-center justify-center py-8 header-height">
         <Spinner />
+      </section>
+    )
+  }
+
+  if(error){
+    return (
+      <section className='flex items-center justify-center py-8 header-height'>
+        <h1 className="text-2xl text-rose-500">Sorry Something Went Wrong, Try Again Later</h1>
       </section>
     )
   }
