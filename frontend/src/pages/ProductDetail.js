@@ -29,23 +29,6 @@ const ProductDetail = () => {
                 alt={singlePost?.post.product}
               />
             </div>
-            <div className="flex px-10 gap-x-4">
-              <img
-                className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singlePost?.post.img}
-                alt={singlePost?.post.product}
-              />
-              <img
-                className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singlePost?.post.img}
-                alt={singlePost?.post.product}
-              />
-              <img
-                className="w-32 h-32 cursor-pointer lg:w-20 lg:h-20 rounded-xl"
-                src={singlePost?.post.img}
-                alt={singlePost?.post.product}
-              />
-            </div>
           </div>
 
           <div className="lg:mb-24">

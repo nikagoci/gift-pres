@@ -8,6 +8,7 @@ import Select from "../utils/Select";
 import Button from "../utils/Button";
 import { useState } from 'react';
 import Modal from './Modal';
+import Spinner from './Spinner';
 
 const schema = yup.object().shape({
     firstname: yup.string().required("Name Is Required"),
@@ -21,6 +22,7 @@ const schema = yup.object().shape({
   });
 
 const Form = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   const [openModal, setOpenModal] = useState(false);
@@ -32,11 +34,13 @@ const Form = () => {
 
   const addProduct = async (data) => {
     try{
+      setIsLoading(true)
       const response = await axios.post('http://localhost:5000/api/v1/post', data)
 
       if(response.status === 201){
         setProductId(response.data.post._id)
         setSuccess(true)
+        setIsLoading(false)
       }
       
       return response
@@ -54,6 +58,16 @@ const Form = () => {
     reset()
     setOpenModal(true)
   };
+
+  if(isLoading){
+    return (
+      <div
+      className="p-10 bg-zinc-200 w-[500px] h-[680px] rounded-3xl mb-10 flex items-center justify-center"
+    >
+      <Spinner />
+      </div>
+    )
+  }
 
   return (
     <>
@@ -97,7 +111,7 @@ const Form = () => {
         </Button>
       </div>
     </form>
-    {openModal && !error && <Modal setOpenModal={setOpenModal} productId={productId} />}
+    {openModal && success && <Modal setOpenModal={setOpenModal} productId={productId} />}
     {openModal && error && <Modal setOpenModal={setOpenModal} error={error} />}
     </>
   );
