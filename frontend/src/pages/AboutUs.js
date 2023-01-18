@@ -1,39 +1,22 @@
-import React from 'react'
-import SingleMember from '../components/SingleMember'
-
-const data = [
-    {
-        img: 'https://purepng.com/public/uploads/thumbnail/businessman-hjd.png',
-        name: 'John Doe',
-        job: 'CEO Of The Company'
-    },
-    {
-        img: 'https://purepng.com/public/uploads/thumbnail/purepng.com-business-manbusinessmanbusinesssalesrevenuegeneratingsuits-1421526838614u7mxl.png',
-        name: 'Luke Smith',
-        job: 'Design Manager'
-    },
-    {
-        img: 'https://purepng.com/public/uploads/thumbnail/businessman-i56.png',
-        name: 'Will Adler',
-        job: 'Technical Manager'
-    },
-]
+import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className='py-8 bg-gray-100'>
-        <div className='container mx-auto'>
-            <div className='flex flex-col items-center'>
-                <h1 className='mb-5 text-3xl font-bold text-indigo-600'>Our Team</h1>
-                <div className='md:justify-center flex flex-col md:flex-row md:w-full md:gap-x-8 md:flex-wrap w-[80%]'>
-                    {data.map((item, ind) => (
-                        <SingleMember key={ind} data={item} />
-                    ))}
-                </div>
+    <>
+      <section className="py-8 header-height z-20 bg-center relative w-full bg-no-repeat bg-cover bg-[url('https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1143&q=80')]">
+        <div className="absolute top-0 left-0 z-10 w-full h-full bg-black/75" />
+        <div className="container relative z-30 h-full mx-auto text-white">
+            <div className="flex flex-col items-center justify-center h-full gap-y-16">
+                <h1 className="text-2xl text-center max-w-[500px] lg:max-w-full xl:text-4xl lg:text-3xl leading-10 capitalize">The gap between the rich and the poor through the power of clothing.</h1>
+                <p className="leading-7 max-w-[400px] lg:max-w-[60%] text-lg text-gray-300 xl:text-2xl xl:max-w-[70%]">Our team is made up of compassionate individuals who are committed to making a difference in the world. We understand that something as simple as a piece of clothing can have a huge impact on someone's life, and we're proud to be a part of that change.</p>
             </div>
         </div>
-    </section>
-  )
-}
+      </section>
+    </>
+  );
+};
 
-export default AboutUs
+export default AboutUs;
+{
+  /* <h1 className='mb-5 text-3xl font-bold text-indigo-600'>About Us</h1> */
+}
