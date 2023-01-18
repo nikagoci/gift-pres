@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Modal = ({ setOpenModal, productId, error }) => {
-  console.log(error);
   return ReactDom.createPortal(
     <>
       <div

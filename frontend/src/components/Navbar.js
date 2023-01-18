@@ -6,9 +6,22 @@ import Logo from "../assets/logo.svg";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-const navbarLinks = ["Home", "About Us", "Products"];
+const navbarLinks = [
+  {
+    name: "Home",
+    to: "/"
+  },
+  {
+    name: "About Us",
+    to: "/about"
+  },
+  {
+    name: "Products",
+    to: "/products"
+  }
+]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +35,17 @@ const Navbar = () => {
           </Link>
           <ul className="hidden md:flex gap-x-6 lg:gap-x-16">
             {navbarLinks.map((item, ind) => (
-              <li
-                key={ind}
-                className="text-lg transition duration-500 cursor-pointer lg:text-2xl text-slate-700 hover:text-slate-400"
+              <NavLink to={item.to} key={ind} 
+                className={({ isActive }) =>
+                  isActive ? 'text-slate-900' : 'text-slate-400'
+                }
               >
-                {item}
-              </li>
+                <li
+                  className="text-lg transition duration-500 cursor-pointer lg:text-2xl text-inherit hover:text-slate-900"
+                >
+                  {item.name}
+                </li>
+              </NavLink>
             ))}
           </ul>
           <div className="hidden md:flex">
@@ -61,20 +79,23 @@ const Navbar = () => {
                 />
               </div>
               <div className="mt-10">
-                <img src={Logo} alt="img" />
+                <Link to='/'>
+                  <img src={Logo} alt="img" className="cursor-pointer" onClick={() => setIsOpen(false)} />
+                </Link>
               </div>
               <ul className="mt-14">
                 {navbarLinks.map((item, ind) => (
-                  <li
-                    key={ind}
-                    className="mb-4 text-2xl transition duration-500 cursor-pointer text-slate-700 hover:text-slate-400"
-                  >
-                    {item}
-                  </li>
+                  <Link key={ind} to={item.to} onClick={() => setIsOpen(false)}>
+                    <li
+                      className="mb-8 text-2xl transition duration-500 cursor-pointer text-slate-700 hover:text-slate-400"
+                    >
+                      {item.name}
+                    </li>
+                  </Link>
                 ))}
               </ul>
               <div className="mt-10">
-                <Link to='/form'>
+                <Link to='/form' onClick={() => setIsOpen(false)}>
                   <Button isFull>Add Product</Button>
                 </Link>
               </div>

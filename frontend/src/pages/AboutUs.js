@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleMember from './SingleMember'
+import SingleMember from '../components/SingleMember'
 
 const data = [
     {
@@ -19,7 +19,7 @@ const data = [
     },
 ]
 
-const Staff = () => {
+const AboutUs = () => {
   return (
     <section className='py-8 bg-gray-100'>
         <div className='container mx-auto'>
@@ -36,4 +36,4 @@ const Staff = () => {
   )
 }
 
-export default Staff
+export default AboutUs
