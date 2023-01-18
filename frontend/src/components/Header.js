@@ -5,8 +5,8 @@ import Button from "../utils/Button";
 const Header = () => {
   return (
     <>
-      <div className="flex flex-col items-center gap-y-10 lg:gap-y-16 lg:items-start">
-        <h1 className="mt-5 text-3xl font-bold text-indigo-600 lg:text-4xl lg:mt-0">
+      <div className="flex flex-col items-center lg:flex-1 gap-y-10 lg:gap-y-16">      
+        <h1 className="mt-5 text-3xl font-bold text-indigo-600 lg:text-5xl lg:mt-0">
           Help Each Other
         </h1>
         <h3 className="max-w-[500px] leading-8 lg:text-[17px] lg:leading-10 text-center lg:text-start">
@@ -24,10 +24,10 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="flex items-center justify-center">
-        <div className="max-w-[500px] lg:w-[900px] lg:h-[900px] max-h-[400px]">
+      <div className="flex items-center justify-center lg:flex-1">
+        <div className="max-w-[500px] lg:w-[900px] lg:h-[900px] max-h-[400px] z-40 flex justify-center ">
           <img
-            src="https://img.freepik.com/premium-vector/manager-support-achieve-target-mentor-coaching-success-work-trusted-partnership-team-collaboration-concept-success-businessman-support-team-member-giving-hand-help-reach-target_212586-1135.jpg?w=2000"
+            src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
             alt="help"
             className="w-full h-full rounded-2xl"
           />

@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const Button = ({children, isFull, type, onClick}) => {
+const Button = ({ children, isFull, type, onClick }) => {
   return (
-    <button type={`${type ? 'submit' : 'button'}`} onClick={onClick} className={`${isFull ? 'text-white hover:bg-transparent bg-indigo-400 hover:border-indigo-400 hover:text-gray-600' : 'border-indigo-400 text-gray-600 hover:bg-indigo-400 hover:text-white'} px-8 py-2  rounded-2xl  transition duration-300 border border-indigo-400 `}>
-        {children}
+    <button
+      type={`${type ? "submit" : "button"}`}
+      onClick={onClick}
+      className={`${
+        isFull
+          ? "text-white hover:bg-transparent bg-indigo-400 hover:border-indigo-400 hover:text-gray-300"
+          : "border-indigo-400 text-gray-300 hover:bg-indigo-400 hover:text-white"
+      } px-8 py-2  rounded-2xl  transition duration-300 border border-indigo-400 `}
+    >
+      {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
