@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SingleProduct = ({data}) => {
   return (
-    <Link to={`product/${data._id}`} className="p-4 w-[80%] bg-gray-200 cursor-pointer mb-4 rounded">
+    <Link to={`/product/${data._id}`} className="p-10 w-[80%] bg-gray-200 cursor-pointer mb-10 rounded">
             <div className="relative block h-48 overflow-hidden rounded">
               <img
                 alt="ecommerce"

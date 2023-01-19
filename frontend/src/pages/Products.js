@@ -23,7 +23,7 @@ const Products = () => {
     }
 
   return (
-    <section className="py-8 ">
+    <section className="py-8 bg-[#151937] ">
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-center text-indigo-600 mb-14">
           Products

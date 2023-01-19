@@ -5,6 +5,7 @@ import useAxios from '../hooks/useAxios'
 const ProductDetail = () => {
   const params = useParams()
   const {data: singlePost, error, isLoading} = useAxios(`http://localhost:5000/api/v1/post/${params.id}`)
+  console.log(singlePost)
 
   if(isLoading) {
     return (
@@ -25,7 +26,7 @@ const ProductDetail = () => {
   return (
     <>
     {singlePost && (
-      <section className="py-8 header-height">
+      <section className="py-8 header-height bg-[#151937] text-white">
       <div className="container h-full mx-auto">
         <div className="flex flex-col h-full lg:items-center lg:justify-center lg:flex-row">
             

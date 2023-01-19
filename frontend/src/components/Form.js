@@ -45,6 +45,7 @@ const Form = () => {
       
       return response
     } catch(err){
+      setIsLoading(false)
       if(err.response.data.message.includes('duplicate key error')){
         setError('Phone Number Already Exists')
       } else {
@@ -106,7 +107,7 @@ const Form = () => {
         getName={register}
       />
       <div className="flex justify-center">
-        <Button isFull type>
+        <Button isFull type className='hover:text-gray-600'>
           Submit
         </Button>
       </div>

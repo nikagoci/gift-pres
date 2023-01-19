@@ -12,11 +12,11 @@ const Modal = ({ setOpenModal, productId, error }) => {
         className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black/70"
         onClick={() => setOpenModal(false)}
       />
-      <div className="fixed top-1/2 left-1/2 bg-white transform -translate-x-1/2 -translate-y-1/2 max-w-[500px] px-10 py-20 lg:px-20 lg:py-32 shadow-2xl rounded-xl z-50">
+      <div className="fixed top-1/2 left-1/2 bg-[#151937] transform -translate-x-1/2 -translate-y-1/2 max-w-[500px] px-10 py-20 lg:px-20 lg:py-32 shadow-2xl rounded-xl z-50">
         {!error ? (
           <>
             <div className="flex flex-col items-center justify-center h-full gap-y-16">
-              <h1 className="text-2xl text-center text-emerald-700">
+              <h1 className="text-2xl text-center text-emerald-300">
                 Your Data Successfuly Sent!
               </h1>
               <Link to={`/product/${productId}`}>
@@ -33,7 +33,7 @@ const Modal = ({ setOpenModal, productId, error }) => {
         ) : (
           <>
             <div className="flex flex-col items-center justify-center h-full gap-y-8">
-              <h1 className="text-2xl text-center text-rose-800">
+              <h1 className="text-2xl font-bold text-center text-rose-400">
                 Your Data Failed To Send!
               </h1>
               <h2 className="text-lg text-center text-rose-500">
