@@ -107,7 +107,7 @@ const Form = () => {
         getName={register}
       />
       <div className="flex justify-center">
-        <Button isFull type className='hover:text-gray-600'>
+        <Button isFull type className='hover:text-gray-800'>
           Submit
         </Button>
       </div>

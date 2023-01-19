@@ -6,6 +6,7 @@ import FormPage from './pages/FormPage'
 import ProductDetail from "./pages/ProductDetail";
 import AboutUs from "./pages/AboutUs";
 import Products from "./pages/Products";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route path='/form' element={<FormPage />} />
       <Route path='/products' element={<Products />} />
       <Route path='/product/:id' element={<ProductDetail />} />
+      <Route path='/dashboard' element={<Dashboard />} />
       <Route path='*' element={<ErrorPage />} />
     </Route>
   )

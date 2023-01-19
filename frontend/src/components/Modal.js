@@ -25,7 +25,7 @@ const Modal = ({ setOpenModal, productId, error }) => {
             </div>
             <div className="absolute top-5 right-5">
               <AiOutlineClose
-                className="text-2xl cursor-pointer"
+                className="text-2xl text-white cursor-pointer"
                 onClick={() => setOpenModal(false)}
               />
             </div>
@@ -45,7 +45,7 @@ const Modal = ({ setOpenModal, productId, error }) => {
             </div>
             <div className="absolute top-5 right-5">
               <AiOutlineClose
-                className="text-2xl cursor-pointer"
+                className="text-2xl text-white cursor-pointer"
                 onClick={() => setOpenModal(false)}
               />
             </div>
