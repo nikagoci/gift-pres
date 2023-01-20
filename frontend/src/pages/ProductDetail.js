@@ -5,7 +5,6 @@ import useAxios from '../hooks/useAxios'
 const ProductDetail = () => {
   const params = useParams()
   const {data: singlePost, error, isLoading} = useAxios(`http://localhost:5000/api/v1/post/${params.id}`)
-  console.log(singlePost)
 
   if(isLoading) {
     return (
