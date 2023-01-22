@@ -14,15 +14,15 @@ const Products = () => {
 
   if (error) {
     return (
-      <section className="py-8">
-        <h1 className="text-2xl text-center text-red-700">{error.message}</h1>
+      <section className="py-8 header-height bg-[#151937]">
+        <h1 className="text-4xl text-center text-red-400">{error.message}</h1>
       </section>
     );
   }
 
   if (isLoading) {
     return (
-      <section className="py-8">
+      <section className="py-8 header-height bg-[#151937]">
         <Spinner />
       </section>
     );

@@ -73,7 +73,7 @@ const Form = () => {
   return (
     <>
     <form
-      className="p-10 bg-zinc-200 w-[500px] rounded-3xl mb-10"
+      className="p-6 bg-zinc-200 w-[300px] sm:w-[500px] rounded-3xl mb-10"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input

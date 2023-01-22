@@ -1,7 +1,7 @@
 const Input = ({ label, name, type, getName, error }) => {
 
   return (
-    <div className="flex flex-col mb-4 gap-y-2">
+    <div className="flex flex-col mb-3 gap-y-1">
       <label htmlFor={label} className='text-lg font-medium'>{name}</label>
       <input
         type={type}
